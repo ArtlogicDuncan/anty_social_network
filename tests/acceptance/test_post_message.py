@@ -13,9 +13,9 @@ CHARLIE_POST = "Someday, I will be a beautiful butterfly, and then everything wi
 class TestPostMessage:
     @patch('builtins.input', side_effect=["PrincessAtta -> The caterpillar's using himself as live bait"])
     def test_user_can_post_and_receives_success_message(self, _):        
-        printer = Printer()
-        social_network_cli = SocialNetworkCLI(printer=printer)
+        mock_printer = Mock()
+        social_network_cli = SocialNetworkCLI(printer=mock_printer)
         
         social_network_cli.run()
         
-        printer.print.assert_called_once_with(f"Succesfully posted: PrincessAtta -> The caterpillar's using himself as live bait")
+        mock_printer.print.assert_called_once_with(f"Succesfully posted: PrincessAtta -> The caterpillar's using himself as live bait")
