@@ -1,2 +1,2 @@
-class Interface:
+class SocialNetworkCLI:
     pass
