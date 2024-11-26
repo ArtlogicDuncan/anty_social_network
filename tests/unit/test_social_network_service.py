@@ -20,9 +20,20 @@ class TestSocialNetworkService:
             created_at=created_at
         )
         mock_repository = Mock(PostRepository)
-        social_network_service = SocialNetworkService(clock=mock_clock, repository=mock_repository)
+        social_network_service = SocialNetworkService(clock=mock_clock, post_repository=mock_repository)
 
         social_network_service.add_post(user_name=user_name, content=content)
 
         mock_repository.add_post.assert_called_once_with(post)
 
+    def test_save_post_to_post_repository(self):
+        post_repository = PostRepository()
+        post = Post(
+            user_name="PrincessAtta",
+            content="The caterpillar's using himself as live bait",
+            created_at=datetime(year=2024, month=11, day=1, hour=12, minute=0, second=0)
+        )
+        
+        post_repository.add_post(post)
+
+        assert post_repository.get_all_posts() == [post]

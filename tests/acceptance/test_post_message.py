@@ -30,7 +30,7 @@ class TestPostMessage:
         post_repository = PostRepository()
         social_network_service = SocialNetworkService(
             clock=mock_clock,
-            repository=post_repository)
+            post_repository=post_repository)
         mock_printer = Mock(PrinterWrapper)
         social_network_cli = SocialNetworkCLI(
             social_network_service=social_network_service, 
