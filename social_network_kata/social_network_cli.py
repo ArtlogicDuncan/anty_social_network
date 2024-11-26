@@ -1,4 +1,3 @@
-from social_network_kata.post import Post
 from social_network_kata.input_wrapper import InputWrapper
 from social_network_kata.printer_wrapper import PrinterWrapper
 from social_network_kata.social_network_service import SocialNetworkService
@@ -12,8 +11,7 @@ class SocialNetworkCLI:
     def run(self):
         user_input = self.input.received_input()
         [user_name, post_content] = user_input.split(' -> ')
-        new_post = Post(user_name=user_name, content=post_content)
-        self.social_network_service.add_post(new_post)
+        self.social_network_service.add_post(user_name, post_content)
             
         # switch
         # wait for input

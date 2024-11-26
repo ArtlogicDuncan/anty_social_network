@@ -6,6 +6,7 @@ from social_network_kata.social_network_service import SocialNetworkService
 from social_network_kata.printer_wrapper import PrinterWrapper
 from social_network_kata.input_wrapper import InputWrapper
 from social_network_kata.clock_wrapper import ClockWrapper
+from social_network_kata.post_repository import PostRepository
 
 ALICE = "PrincessAtta"
 ALICE_POST = "The caterpillar's using himself as live bait"
@@ -26,8 +27,10 @@ class TestPostMessage:
             "PrincessAtta -> The caterpillar's using himself as live bait",
             "PrincessAtta"
             ]
+        post_repository = PostRepository()
         social_network_service = SocialNetworkService(
-            clock=mock_clock)
+            clock=mock_clock,
+            repository=post_repository)
         mock_printer = Mock(PrinterWrapper)
         social_network_cli = SocialNetworkCLI(
             social_network_service=social_network_service, 

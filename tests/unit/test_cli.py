@@ -7,7 +7,8 @@ from social_network_kata.post import Post
 
 class TestCLI:
     def test_cli_calls_add_post(self):
-        post = Post(user_name="PrincessAtta", content="The caterpillar's using himself as live bait")
+        user_name="PrincessAtta" 
+        content="The caterpillar's using himself as live bait"
         mock_input = Mock(InputWrapper)
         mock_input.received_input.side_effect = [
             "PrincessAtta -> The caterpillar's using himself as live bait"
@@ -21,4 +22,4 @@ class TestCLI:
 
         social_network_cli.run()
         
-        mock_social_network_service.add_post.assert_called_once_with(post)
+        mock_social_network_service.add_post.assert_called_once_with(user_name, content)
