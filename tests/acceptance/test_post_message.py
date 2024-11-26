@@ -8,13 +8,6 @@ from social_network_kata.input_wrapper import InputWrapper
 from social_network_kata.clock_wrapper import ClockWrapper
 from social_network_kata.post_repository import PostRepository
 
-ALICE = "PrincessAtta"
-ALICE_POST = "The caterpillar's using himself as live bait"
-BOB = "Slim"
-BOB_POST = "I'm the only stick with eyeballs!"
-CHARLIE = "Heimlich"
-CHARLIE_POST = "Someday, I will be a beautiful butterfly, and then everything will be better." 
-
 class TestPostMessage:
     def test_user_can_post_and_receives_success_message(self):
         mock_input = Mock(InputWrapper)
