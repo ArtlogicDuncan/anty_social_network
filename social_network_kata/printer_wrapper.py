@@ -1,4 +1,4 @@
-class Printer:
+class PrinterWrapper:
     pass
     
     def print():

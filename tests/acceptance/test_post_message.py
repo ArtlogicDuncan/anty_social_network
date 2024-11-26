@@ -3,7 +3,7 @@ from datetime import datetime
 
 from social_network_kata.social_network_cli import SocialNetworkCLI
 from social_network_kata.social_network_service import SocialNetworkService
-from social_network_kata.printer import Printer
+from social_network_kata.printer_wrapper import PrinterWrapper
 from social_network_kata.input_wrapper import InputWrapper
 from social_network_kata.clock_wrapper import ClockWrapper
 
@@ -28,7 +28,7 @@ class TestPostMessage:
             ]
         social_network_service = SocialNetworkService(
             clock=mock_clock)
-        mock_printer = Mock(Printer)
+        mock_printer = Mock(PrinterWrapper)
         social_network_cli = SocialNetworkCLI(
             social_network_service=social_network_service, 
             printer=mock_printer,

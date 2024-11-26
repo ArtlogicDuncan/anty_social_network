@@ -7,4 +7,4 @@ class User:
         self.id = id
         self.posts = posts
         pass
-    
+        
