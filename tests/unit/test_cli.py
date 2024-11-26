@@ -15,9 +15,3 @@ class TestCLI:
         social_network_cli.run()
         
         mock_social_network_service.add_post.assert_called_once_with(post)
-
-
-        
-
-
-        
