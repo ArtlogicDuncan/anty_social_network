@@ -11,8 +11,16 @@ class InputParser:
         # Posting: "<user name> -> <message>"
         posting_match = re.match(r"^(\w+) -> (.+)$", user_input)
         
-        if posting_match:
+        # Reading: "<user name>"
+        reading_match = re.match(r"^(\w+)$", user_input)
+        
+        if user_input == "exit":
+            raise NotImplementedError("")
+        elif posting_match:
             username, message = posting_match.groups()
             return Command(type=CommandType.POSTING, user_name=username, command_input=message)
+        elif reading_match:
+            username = reading_match.group(1)
+            return Command(type=CommandType.READING, user_name=username)
         else:
-            raise NotImplementedError()
+            raise NotImplementedError(user_input)

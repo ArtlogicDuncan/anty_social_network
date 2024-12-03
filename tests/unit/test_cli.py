@@ -61,5 +61,3 @@ class TestCLI:
         social_network_cli.run()
 
         mock_printer.print.assert_called_once_with("The caterpillar's using himself as live bait (1 minute ago)")
-        
-

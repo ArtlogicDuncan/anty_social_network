@@ -14,4 +14,4 @@ class SocialNetworkService:
         self.post_repository.add_post(post)
 
     def get_posts_for_username(self, user_name: str):
-        raise NotImplementedError()
+        raise NotImplementedError(user_name)

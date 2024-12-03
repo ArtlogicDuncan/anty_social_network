@@ -37,3 +37,22 @@ class TestSocialNetworkService:
         post_repository.add_post(post)
 
         assert post_repository.get_all_posts() == [post]
+    
+    def test_get_posts_for_username(self):
+        post = Post(
+            user_name="Slim",
+            content="I'm the only stick with eyeballs!",
+            created_at=datetime(year=2024, month=11, day=1, hour=12, minute=0, second=0)
+        )
+        mock_clock = Mock(ClockWrapper)
+        mock_repository = Mock(PostRepository)
+        mock_repository.get_posts_by_username.side_effect = [
+            [post]
+        ]
+        social_network_service = SocialNetworkService(clock=mock_clock, post_repository=mock_repository)
+
+        slim_posts = social_network_service.get_posts_for_username('Slim')
+
+        mock_repository.assert_called_once_with('Slim')
+        assert slim_posts == [post]
+

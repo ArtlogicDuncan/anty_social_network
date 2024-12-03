@@ -12,3 +12,11 @@ class TestInputParser:
         command = input_parser.parse_user_input(f"{user_name} -> {post_content}")
 
         assert command == Command(type=CommandType.POSTING, user_name=user_name, command_input=post_content)
+
+    def test_can_get_posts_from_username(self):
+        input_parser = InputParser()
+        user_name = "PrincessAtta"
+
+        command = input_parser.parse_user_input(user_name)
+
+        assert command == Command(type=CommandType.READING, user_name=user_name)
