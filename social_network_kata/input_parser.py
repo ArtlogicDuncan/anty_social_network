@@ -15,7 +15,7 @@ class InputParser:
         reading_match = re.match(r"^(\w+)$", user_input)
         
         if user_input == "exit":
-            raise NotImplementedError("")
+            return Command(type=CommandType.EXIT)
         elif posting_match:
             username, message = posting_match.groups()
             return Command(type=CommandType.POSTING, user_name=username, command_input=message)
