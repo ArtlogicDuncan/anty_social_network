@@ -31,5 +31,7 @@ class SocialNetworkCLI:
                     self.social_network_service.add_post(user_name, post_content)
                 case CommandType.EXIT:
                     self.exit()
+                case CommandType.READING:
+                    self.social_network_service.get_posts_for_username(command.user_name)
                 case _:
                     continue
