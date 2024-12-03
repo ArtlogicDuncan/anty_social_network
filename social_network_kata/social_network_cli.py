@@ -32,6 +32,7 @@ class SocialNetworkCLI:
                 case CommandType.EXIT:
                     self.exit()
                 case CommandType.READING:
-                    self.social_network_service.get_posts_for_username(command.user_name)
+                    posts = self.social_network_service.get_posts_for_username(command.user_name)
+                    self.printer.print(posts)
                 case _:
                     continue
