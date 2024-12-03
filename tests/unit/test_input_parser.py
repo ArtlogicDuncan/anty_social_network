@@ -13,7 +13,7 @@ class TestInputParser:
 
         assert command == Command(type=CommandType.POSTING, user_name=user_name, command_input=post_content)
 
-    def test_can_get_posts_from_username(self):
+    def test_can_get_posts_for_username(self):
         input_parser = InputParser()
         user_name = "PrincessAtta"
 

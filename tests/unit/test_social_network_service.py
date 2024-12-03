@@ -46,13 +46,13 @@ class TestSocialNetworkService:
         )
         mock_clock = Mock(ClockWrapper)
         mock_repository = Mock(PostRepository)
-        mock_repository.get_posts_by_username.side_effect = [
+        mock_repository.get_all_posts_for_username.side_effect = [
             [post]
         ]
         social_network_service = SocialNetworkService(clock=mock_clock, post_repository=mock_repository)
 
         slim_posts = social_network_service.get_posts_for_username('Slim')
 
-        mock_repository.assert_called_once_with('Slim')
+        mock_repository.get_all_posts_for_username.assert_called_once_with(username='Slim')
         assert slim_posts == [post]
 

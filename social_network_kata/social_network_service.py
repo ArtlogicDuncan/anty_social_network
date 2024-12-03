@@ -13,5 +13,5 @@ class SocialNetworkService:
         post = Post(user_name, content, created_at)
         self.post_repository.add_post(post)
 
-    def get_posts_for_username(self, user_name: str):
-        raise NotImplementedError(user_name)
+    def get_posts_for_username(self, user_name: str) -> list[Post]:
+        return self.post_repository.get_all_posts_for_username(username=user_name)

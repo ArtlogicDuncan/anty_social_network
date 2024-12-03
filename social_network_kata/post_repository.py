@@ -10,3 +10,6 @@ class PostRepository:
 
     def get_all_posts(self) -> list[Post]:
         return self.posts
+
+    def get_all_posts_for_username(self, username: str) -> list[Post]:
+        return [post for post in self.posts if post.user_name == username]
