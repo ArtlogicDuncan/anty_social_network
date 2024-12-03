@@ -3,6 +3,7 @@ from unittest.mock import patch, Mock
 from social_network_kata.input_wrapper import InputWrapper
 from social_network_kata.printer_wrapper import PrinterWrapper
 from social_network_kata.social_network_cli import SocialNetworkCLI
+from social_network_kata.social_network_service import SocialNetworkService
 from social_network_kata.post import Post
 
 class TestCLI:
@@ -12,6 +13,7 @@ class TestCLI:
         mock_input = Mock(InputWrapper)
         mock_input.received_input.side_effect = [
             f"{user_name} -> {content}",
+            "exit"
             ]
         mock_printer = Mock(PrinterWrapper)
         mock_social_network_service = Mock()
@@ -30,10 +32,11 @@ class TestCLI:
         mock_input = Mock(InputWrapper)
         mock_input.received_input.side_effect = [
             f"{user_name} -> {content}",
-            f"{user_name}"
+            user_name,
+            "exit"
             ]
         mock_printer = Mock(PrinterWrapper)
-        mock_social_network_service = Mock()
+        mock_social_network_service = Mock(SocialNetworkService)
         social_network_cli = SocialNetworkCLI(
             social_network_service=mock_social_network_service, 
             printer=mock_printer,

@@ -18,7 +18,8 @@ class TestPostMessage:
             ]
         mock_input.received_input.side_effect = [
             "PrincessAtta -> The caterpillar's using himself as live bait",
-            "PrincessAtta"
+            "PrincessAtta",
+            "exit"
             ]
         post_repository = PostRepository()
         social_network_service = SocialNetworkService(

@@ -12,3 +12,6 @@ class SocialNetworkService:
         created_at = self.clock.get_time()
         post = Post(user_name, content, created_at)
         self.post_repository.add_post(post)
+
+    def get_posts_for_username(self, user_name: str):
+        raise NotImplementedError()
