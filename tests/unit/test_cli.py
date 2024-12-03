@@ -47,6 +47,11 @@ class TestCLI:
         mock_printer = Mock(PrinterWrapper)
         mock_social_network_service = Mock(SocialNetworkService)
         mock_input_parser = Mock(InputParser)
+        mock_input_parser.parse_user_input.side_effect = [
+            Command(type=CommandType.POSTING, user_name=user_name, command_input=content),
+            Command(type=CommandType.READING, user_name=user_name),
+            Command(type=CommandType.EXIT)
+        ]
         social_network_cli = SocialNetworkCLI(
             social_network_service=mock_social_network_service, 
             printer=mock_printer,
