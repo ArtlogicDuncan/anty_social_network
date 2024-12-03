@@ -7,6 +7,7 @@ from social_network_kata.printer_wrapper import PrinterWrapper
 from social_network_kata.input_wrapper import InputWrapper
 from social_network_kata.clock_wrapper import ClockWrapper
 from social_network_kata.post_repository import PostRepository
+from social_network_kata.input_parser import InputParser
 
 class TestPostMessage:
     def test_user_can_post_and_receives_success_message(self):
@@ -26,10 +27,12 @@ class TestPostMessage:
             clock=mock_clock,
             post_repository=post_repository)
         mock_printer = Mock(PrinterWrapper)
+        input_parser = InputParser()
         social_network_cli = SocialNetworkCLI(
             social_network_service=social_network_service, 
             printer=mock_printer,
-            input=mock_input)
+            input=mock_input,
+            input_parser=input_parser)
         
         social_network_cli.run()
         
